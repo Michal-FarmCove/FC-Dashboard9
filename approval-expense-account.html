@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approval History</title>
+    <link rel="stylesheet" href="styles.css">
+	<script src="More-Tab.js"></script>
+	<script src="More-Tab2.js"></script>
+	<script src="popup-window.js"></script>
+	<script src="popup-window2.js"></script>
+	<script src="popup-window3.js"></script>
+</head>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+<script>
+function toggleInputs(checkbox) {
+    const row = checkbox.closest('tr');
+    const dateCell = row.querySelector('#date-input-cell-2');
+    const amountCell = row.querySelector('#amount-input-cell-2');
+    
+    if (checkbox.checked) {
+        // Show separate inputs for month and day with validation
+        dateCell.innerHTML = `
+            <input type="number" class="date-input" placeholder="MM" min="1" max="12" oninput="validateMonth(this)" /> /
+            <input type="number" class="date-input" placeholder="DD" min="1" max="31" oninput="validateDay(this)" />
+        `;
+        amountCell.innerHTML = '<input type="number" class="amount-input" placeholder="Enter amount" step="0.01" />';
+    } else {
+        // Clear inputs when checkbox is unchecked
+        dateCell.innerHTML = '';
+        amountCell.innerHTML = '';
+    }
+}
+
+function validateMonth(input) {
+    if (input.value > 12) {
+        input.value = 12;
+    } else if (input.value < 1) {
+        input.value = '';
+    }
+}
+
+function validateDay(input) {
+    if (input.value > 31) {
+        input.value = 31;
+    } else if (input.value < 1) {
+        input.value = '';
+    }
+}
+</script>
+
+
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="Farm Cove Horizontal Logo.png" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="magnifying glass.png" alt="Search" class="icon">
+            <img src="bell.png" alt="Notifications" class="icon">
+            <img src="avatar.png" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Main Navigation Tabs -->
+    <div class="tabs">
+        <a href="index.html">Home</a>
+        <a href="approvals.html" class="active">Approvals</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html">Film Details</a>
+        <a href="reporting.html">Reports</a>
+        <a href="schedule-payment.html">Schedule Payment</a>
+        <a href="pay.html">Pay</a>
+		
+				<!-- More Button -->
+		<div class="more">
+			More
+			<div class="more-dropdown"></div>
+		</div>
+    </div>
+
+    <!-- Approvals Sub Navigation -->
+    <div class="tabs2">
+        <a href="approvals.html"">Query Responses</a>
+        <a href="approval-payroll-invoices.html">Payroll Invoices</a>
+		<a href="approval-expense-account.html" class="active">Expense Account Reconciliations</a>
+		<a href="approval-history.html">Approval History</a>
+		
+				<!-- More Button -->
+		<div class="more-tabs2">
+			More
+			<div class="more-dropdown-tabs2"></div> 
+		</div>
+		
+    </div>
+
+    <!-- Page Header -->
+    <div class="header">
+        <h1>Expense Account Reconciliations</h1>
+    </div>
+
+    <!-- Table for Transactions -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Reference</th>
+                    <th>Description</th>
+                    <th>Name and Role</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Balance</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>TG-000010</td>
+                    <td>John's Receipts</td>
+                    <td>John, Production Assistant</td>
+                    <td>Compliance Review Required</td>
+                    <td>£200.00</td>
+                    <td>£0.00</td>
+					<td><button class="button1" onclick="openPopup()">View Group Transactions</button></td>
+                </tr>
+				
+                <tr class="grey-row">
+                    <td>TG-000011</td>
+                    <td>Reimbursement for fuel expense</td>
+                    <td>Sarah, Camera Operator</td>
+                    <td>Production Approval Required</td>
+                    <td>£45.50</td>
+                    <td>£5.00</td>
+                    <td><button class="button2" disabled>View Group Transactions</button></td>
+                </tr>
+				
+                <tr class="grey-row">
+                    <td>TG-000012</td>
+                    <td>Reimbursement for catering supplies</td>
+                    <td>Michael, Catering Manager</td>
+                    <td>Production Approval Required</td>
+                    <td>£120.00</td>
+                    <td>£10.00</td>
+                    <td><button class="button2" disabled>View Group Transactions</button></td>
+                </tr>
+				
+                <tr class="grey-row">
+                    <td>TG-000013</td>
+                    <td>Reimbursement for makeup kits</td>
+                    <td>Jessica, Makeup Artist</td>
+                    <td>Production Approval Required</td>
+                    <td>£75.00</td>
+                    <td>£7.50</td>
+                    <td><button class="button2" disabled>View Group Transactions</button></td>
+                </tr>
+				
+                <tr class="grey-row">
+                    <td>TG-000014</td>
+                    <td>Reimbursement for set repair</td>
+                    <td>Alex, Set Designer</td>
+                    <td>Production Approval Required</td>
+                    <td>£200.00</td>
+                    <td>£20.00</td>
+                    <td><button class="button2" disabled>View Group Transactions</button></td>
+                </tr>
+				
+            </tbody>
+        </table>
+    </div>
+
+
+<!-- Popup Window -->
+<div id="popup" class="popup">
+    <!-- Main content for Approve/Reject -->
+    <div class="popup-content" id="popup-main">
+        <button class="close-btn1" onclick="closePopup()">X</button>
+        <h3>Transaction Details</h3>
+		</br>
+        
+        <!-- Scrollable Table -->
+        <div class="popup-table-container" style="max-height: 300px; overflow-y: auto;">
+            <table class="transaction-table">
+                <thead>
+                    <tr>
+                        <th>Reference</th>
+                        <th>Document Number</th>
+                        <th>Submitter</th>
+                        <th>Status</th>
+                        <th>Transaction Date</th>
+                        <th>Description</th>
+                        <th>Total</th>
+                        <th>File Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+				
+                    <tr>
+                        <td>TRX-00001</td>
+                        <td>0001</td>
+                        <td>John, Production Assistant</td>
+                        <td>Compliance Review Required</td>
+                        <td>4 Mar 2024</td>
+                        <td>This is a Catering receipt for breakfast for the director totaling £10.00 including VAT...</td>
+                        <td>£10.00</td>
+                        <td><button class="button1">View</a></td>
+                    </tr>
+					
+                    <tr>
+                        <td>TRX-00002</td>
+                        <td>0002</td>
+                        <td>John, Production Assistant</td>
+                        <td>Compliance Review Required</td>
+                        <td>10 Mar 2024</td>
+                        <td>This is a Shell gas station receipt for fuel totaling £40.00 including VAT....</td>
+                        <td>£40.00</td>
+                        <td><button class="button1">View</a></td>
+                    </tr>
+					
+					<tr>
+                        <td>TRX-00003</td>
+                        <td>0003</td>
+                        <td>John, Production Assistant</td>
+                        <td>Compliance Review Required</td>
+                        <td>25 Mar 2024</td>
+                        <td>This is an Equipment Rental receipt for a lighting kit totaling £50.00 including VAT...</td>
+                        <td>£50.00</td>
+                        <td><button class="button1">View</a></td>
+                    </tr>
+					
+					<tr>
+                        <td>TRX-00004</td>
+                        <td>0004</td>
+                        <td>John, Production Assistant</td>
+                        <td>Compliance Review Required</td>
+                        <td>27 Mar 2024</td>
+                        <td>This is a Props receipt for costume accessories totaling £15.00 including VAT...</td>
+                        <td>£15.00</td>
+                        <td><button class="button1">View</a></td>
+                    </tr>
+					
+					<tr>
+                        <td>TRX-00005</td>
+                        <td>0005</td>
+                        <td>John, Production Assistant</td>
+                        <td>Compliance Review Required</td>
+                        <td>28 Mar 2024</td>
+                        <td>This is a Shell gas station receipt for fuel totaling £85.00 including VAT....</td>
+                        <td>£85.00</td>
+                        <td><button class="button1">View</a></td>
+                    </tr>
+					
+                </tbody>
+            </table>
+        </div>
+		
+		
+		
+		
+		
+		
+		
+
+        <div class="popup-buttons">
+            <button onclick="approveDocument()">Approve</button>
+            <button onclick="queryDocument()">Query</button>
+            <button onclick="rejectDocument()">Reject</button>
+        </div>
+    </div>
+		
+
+		<!-- Approval/Rejection Message Content -->
+		<div class="popup-content approval-message" id="approval-message" style="display: none;">
+			<p class="message-text">Message goes here</p>
+			<button class="ok-btn" onclick="closePopup()">OK</button>
+		</div>
+
+		<!-- Query Input Content -->
+		<div class="popup-content query-popup" id="query-popup" style="display: none;">
+			<button class="close-btn1" onclick="closePopup()">X</button>
+			<h3>Submit Query</h3>
+			<textarea placeholder="Enter your query here..."></textarea>
+			<div class="popup-buttons">
+				<button onclick="submitQuery()">Submit Query</button>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

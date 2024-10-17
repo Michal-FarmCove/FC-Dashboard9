@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+	<script src="More-Tab.js"></script>
+	<script src="More-Tab2.js"></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+	<script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+	
+<script>
+function toggleInputs(checkbox) {
+    const row = checkbox.closest('tr');
+    const dateCell = row.querySelector('#date-input-cell-2');
+    const amountCell = row.querySelector('#amount-input-cell-2');
+    
+    if (checkbox.checked) {
+        // Use a date input for a date picker
+        dateCell.innerHTML = '<input type="date" class="date-input" />';
+        amountCell.innerHTML = '<input type="number" class="amount-input" placeholder="Enter amount" step="0.01" />';
+    } else {
+        // Clear inputs when checkbox is unchecked
+        dateCell.innerHTML = '';
+        amountCell.innerHTML = '';
+    }
+}
+
+</script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="Farm Cove Horizontal Logo.png" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="magnifying glass.png" alt="Search" class="icon">
+            <img src="bell.png" alt="Notifications" class="icon">
+            <img src="avatar.png" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Hidden Menu for Mobile View -->
+    <div class="tabs">
+        <a href="index.html">Home</a>
+        <a href="approvals.html">Approvals</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html">Film Details</a>
+        <a href="reporting.html">Reports</a>
+        <a href="schedule-payment.html" class="active">Schedule Payment</a>
+        <a href="pay.html">Pay</a>
+		
+				<!-- More Button  -->
+		<div class="more">
+			More
+			<div class="more-dropdown"></div>
+		</div>
+		
+    </div>
+
+    <!-- Sub-navigation Bar for Schedule Payment -->
+    <div class="tabs2">
+        <a href="schedule-payment.html">Invoices</a>
+        <a href="schedule-payment-personal-expenses.html">Personal Expenses</a>
+        <a href="schedule-payment-expense-account.html">Expense Account Reconciliations</a>
+        <a href="schedule-payment-payroll.html" class="active">Payroll Submission</a>
+		
+				<!-- More Button -->
+		<div class="more-tabs2">
+			More
+			<div class="more-dropdown-tabs2"></div> 
+		</div>
+		
+    </div>
+
+
+   <!-- Table for Scheduled Payments -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref.</th>
+                    <th>Description</th>
+                    <th>Period Start</th>
+                    <th>Period End</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Balance</th>
+                    <th>Schedule</th>
+                    <th>Amount to Pay</th>
+                    <th>Sch. Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+			
+			
+<tr>
+    <td>TH-001</td>
+    <td>Week 1 - Personal Reimbursements</td>
+    <td>--</td>
+    <td>--</td>
+    <td>Approved</td>
+    <td>£166.92</td>
+    <td>£68.59</td>
+    <td>
+        <label class="switch">
+            <input type="checkbox" onchange="toggleInputs(this)">
+            <span class="slider round"></span>
+        </label>
+    </td>
+    <td class="amount-cell" id="amount-input-cell-2"></td> <!-- Default to empty -->
+	<td class="date-cell" id="date-input-cell-2"></td> <!-- Default to empty -->
+    <td><button class="button">View</button></td>
+</tr>
+			
+<tr>
+    <td>TH-002</td>
+    <td>Week 1 - Office Supplies</td>
+    <td>--</td>
+    <td>--</td>
+    <td>Pending</td>
+    <td>£245.33</td>
+    <td>£100.00</td>
+    <td>
+        <label class="switch">
+            <input type="checkbox" onchange="toggleInputs(this)">
+            <span class="slider round"></span>
+        </label>
+    </td>
+    <td class="amount-cell" id="amount-input-cell-2"></td> <!-- Default to empty -->
+	<td class="date-cell" id="date-input-cell-2"></td> <!-- Default to empty -->
+    <td><button class="button">View</button></td>
+</tr>
+
+
+
+<tr>
+    <td>TH-003</td>
+    <td>Week 1 - Travel Expenses</td>
+    <td>01/08/24</td>
+    <td>31/08/24</td>
+    <td>Approved</td>
+    <td>£800.00</td>
+    <td>£500.00</td>
+    <td>
+        <label class="switch">
+            <input type="checkbox" onchange="toggleInputs(this)">
+            <span class="slider round"></span>
+        </label>
+    </td>
+    <td class="amount-cell" id="amount-input-cell-2"></td> <!-- Default to empty -->
+	<td class="date-cell" id="date-input-cell-2"></td> <!-- Default to empty -->
+    <td><button class="button">View</button></td>
+</tr>
+
+
+<tr>
+    <td>TH-004</td>
+    <td>Week 2 - Travel Expenses</td>
+    <td>15/08/24</td>
+    <td>22/08/24</td>
+    <td>Queried</td>
+    <td>£500.00</td>
+    <td>£250.00</td>
+    <td>
+        <label class="switch">
+            <input type="checkbox" onchange="toggleInputs(this)">
+            <span class="slider round"></span>
+        </label>
+    </td>
+    <td class="amount-cell" id="amount-input-cell-2"></td> <!-- Default to empty -->
+	<td class="date-cell" id="date-input-cell-2"></td> <!-- Default to empty -->
+    <td><button class="button">View</button></td>
+</tr>
+
+
+<tr>
+    <td>TH-005</td>
+    <td>Week 2 - Personal Reimbursements</td>
+    <td>--</td>
+    <td>--</td>
+    <td>Approved</td>
+    <td>£300.00</td>
+    <td>£100.00</td>
+    <td>
+        <label class="switch">
+            <input type="checkbox" onchange="toggleInputs(this)">
+            <span class="slider round"></span>
+        </label>
+    </td>
+    <td class="amount-cell" id="amount-input-cell-2"></td> <!-- Default to empty -->
+	<td class="date-cell" id="date-input-cell-2"></td> <!-- Default to empty -->
+    <td><button class="button">View</button></td>
+</tr>
+
+                <!-- More rows can be added here -->
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+</html>

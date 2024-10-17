@@ -1,0 +1,1165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+	overflow-x: hidden;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	width: 100%;
+    background-color: white;
+    padding: 1.5% 3%;
+    box-sizing: border-box; /* Ensures padding doesn’t affect width */
+
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.logo {
+    position: absolute;
+    left: 50%; /* Move the logo to the center */
+    transform: translateX(-50%); /* Ensure it's truly centered by adjusting half its own width */
+    text-align: center;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Hidden Menu Styling */
+.menu {
+    display: none;
+    background-color: #f5f5f5;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 200px;
+    padding: 10px;
+
+}
+
+.menu a {
+    display: block;
+    margin: 10px 0;
+    text-decoration: none;
+    color: #333;
+}
+
+.menu.active {
+    display: block;
+}
+
+/* Welcome section */
+.welcome-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.welcome-section h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Container for adjustable width */
+.container {
+    max-width: 100%; /* Adjustable container */
+    width: 100%; /* Default width - can be modified */
+    margin:auto; /* Centering the container */
+    overflow-x: auto; /* Allow scrolling if needed */
+}
+
+/* Stage container and section */
+.progress-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 30px;
+    padding: 0 0px;
+}
+
+.stage-container {
+    text-align: center;
+    width: 140px; /* Slightly larger width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.progress-stage {
+    background-color: #32B8CD;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 14px;
+    width: 120px; /* Slightly larger width */
+    margin-bottom: 8px;
+}
+
+.divider {
+    width: 1.5px;
+    height: 320px;
+    background-color: #ccc;
+    margin-left: 0px; /* No space between lines and headers */
+    margin-right: 0px;
+}
+
+/* Poster container and styling */
+.poster-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.movie-title {
+    color: black;
+	margin-top: 17px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    font-weight: bold;
+	font-size: 12px; /* Change this value to adjust the font size */
+}
+
+.poster-container img {
+    width: 115px;
+    height: 190px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Navigation Bar */
+.tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 0;
+    border-bottom: 2px solid #ddd;
+    width: 100%;
+	font-size: 13px;
+    gap: 0px;
+	white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: relative;
+	overflow: visible; /* Ensure dropdown is not clipped */
+}
+
+.tabs a, .tabs .more-button {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 0;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    padding: 16px;
+	padding-Left: 15px;
+	padding-Right: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+}
+
+.tabs a.active, .tabs .more-button:hover {
+    color: #32B8CD;
+    border-bottom: 3px solid #32B8CD;
+}
+
+
+/* Navigation Bar2 */
+.tabs2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 0px 0;
+    border-bottom: 2px solid #ddd;
+    width: 100%;
+    font-size: 13px;
+    gap: 0px;
+	white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: relative;
+	overflow: visible; /* Ensure dropdown is not clipped */
+	
+}
+
+.tabs2 a, .tabs .more-button {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 0;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    padding: 16px;
+	padding-Left: 15px;
+	padding-Right: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+}
+
+.tabs2 a.active, .tabs .more-button:hover {
+    color: #32B8CD;
+    border-bottom: 3px solid #32B8CD;
+}
+
+
+
+
+
+/* Positioning and style for the More button container */
+.more {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+
+
+
+
+/* Main "More" container styling */
+.more {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    color: #333;
+    padding: 10px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Dropdown container for hidden items */
+.more-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0; /* Align to the right edge */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 150px;
+    margin-top: 5px;
+    overflow-y: auto; /* Add scroll if items overflow vertically */
+    max-height: 300px; /* Set a max height to contain within screen height */
+}
+
+
+/* Links inside dropdown menu */
+.more-dropdown a {
+    display: block;
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd; /* Adds a bottom border for straight lines */
+}
+
+.more-dropdown a:last-child {
+    border-bottom: none; /* Removes the border for the last item */
+}
+
+.more-dropdown a:hover {
+    background-color: #f4f4f4;
+}
+
+/* Dropdown visibility toggled by JavaScript */
+.more-dropdown.show {
+    display: block;
+}
+
+/* Style for the More button to match navigation tabs */
+.more-button {
+    background-color: transparent;
+    color: #333;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Ensure no border-radius on the hover effect */
+.more-dropdown a:hover {
+    border-radius: 0; /* No rounded corners */
+}
+
+/* Additional styling for button consistency */
+.more-button:hover {
+    background-color: #f4f4f4; /* Match hover color with other buttons */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Main "More-Tabs2" container styling */
+.more-tabs2 {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    color: #333;
+    padding: 10px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Dropdown container for hidden items in tabs2 */
+.more-dropdown-tabs2 {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position directly below the More button */
+    right: 0; /* Align to the right edge of the More button */
+    background-color: #fff; /* Set to white for a clean look */
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 150px;
+    margin-top: 5px; /* Small margin to separate from More button */
+    overflow-y: auto;
+    max-height: 300px;
+    pointer-events: auto;
+}
+
+/* Links inside dropdown menu for tabs2 */
+.more-dropdown-tabs2 a {
+    display: block;
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+.more-dropdown-tabs2 a:last-child {
+    border-bottom: none; /* Removes the border for the last item */
+}
+
+.more-dropdown-tabs2 a:hover {
+    background-color: #f4f4f4;
+}
+
+/* Dropdown visibility toggled by JavaScript */
+.more-dropdown-tabs2.show {
+    display: block;
+}
+
+/* Style for the More-Tabs2 button to match navigation tabs */
+.more-button-tabs2 {
+    background-color: transparent;
+    color: #333;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Ensure no border-radius on the hover effect */
+.more-dropdown-tabs2 a:hover {
+    border-radius: 0; /* No rounded corners */
+}
+
+/* Additional styling for button consistency */
+.more-tabs2:hover {
+    background-color: #f4f4f4; /* Match hover color with other buttons */
+}
+
+.dropdown-item {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Film Details Container */
+.film-details-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+
+    border: 1px solid #ddd;
+}
+
+/* Film Header */
+.film-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.film-header img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.film-title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.film-title h1 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.follow-button {
+    background-color: #32B8CD;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+/* Outer Container Styling */
+.outer-container {
+    margin-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+	border-color: #fff;
+}
+
+/* Film Details Container Styling */
+.film-details-container {
+    max-width: 1500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background-color: #fff;
+
+    height: 600px;
+}
+
+/* Grid Layout inside the container */
+.film-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Poster Section with Horizontal Lines */
+.poster-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Horizontal lines in poster section */
+.poster-section hr {
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    border: none;
+    margin-bottom: 10px;
+}
+
+/* Title above the poster */
+.poster-section p {
+    margin: 0 0 10px;
+    font-size: 18px;
+    text-align: left;
+}
+
+/* Smaller Poster */
+.poster-section img {
+    width: 150px;
+    height: 225px;
+    border-radius: 5px;
+
+}
+
+/* Left Grid */
+.grid-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.grid-left div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.grid-left strong {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.grid-left p {
+    margin: 0;
+}
+
+.grid-left hr {
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Right Grid */
+.grid-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.grid-right div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+	margin: 0;
+    padding: 0;
+}
+
+/* Horizontal lines between sections */
+.grid-right hr {
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.grid-right strong {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.grid-right p {
+    margin: 0;
+}
+
+/* Adjust the space above 'Overseas Production Company' */
+.grid-right div:nth-child(2) {
+    margin-top: -7px; /* Smaller adjustment to bring the line above Overseas Production Company in line with the poster */
+    padding-top: 0;
+}
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    padding: 20px;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #fff;
+    padding: 10px 0; /* Adjust padding to match */
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between; /* Adjusted to space elements */
+    align-items: center; /* Centered items vertically */
+    height: 60px; /* Set a fixed height to ensure consistency */
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    padding: 10px 0; /* Same padding as the navbar */
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+    height: 50px; /* Set a fixed height for tabs */
+}
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.logo img {
+    max-width: 150px; /* Adjust the width as needed */
+    height: auto; /* Keeps the image proportions */
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.tabs a.active {
+    color: #32B8CD;
+    border-bottom: 3px solid #32B8CD;
+}
+
+/* Task Container */
+.task-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+}
+
+/* Task Group */
+.task-group h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Task Section */
+.task-section {
+    margin-bottom: 20px;
+}
+
+.task-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Task Item */
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.task-item label {
+    flex-grow: 1;
+    padding-left: 10px;
+    color: #555;
+}
+
+.open-button {
+    background-color: #32B8CD;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.open-button:hover {
+    background-color: #32B8CD;
+}
+
+
+
+
+/* Table Styles 
+.table-container {
+    max-width: 900px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+	text-align: left; /* Centers the container itself */
+
+}
+/*
+table {
+    width: 100%;
+    border-collapse: collapse;
+	border-collapse: collapse;
+    margin: 0 auto; /* Centers the table content inside the container */
+	
+}
+/*
+table thead th {
+    background-color: #f4f4f4;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+table tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+*/
+
+
+
+
+
+
+
+/* Hidden Menu Styling */
+.menu {
+    display: none;
+    background-color: #f5f5f5;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 200px;
+    padding: 10px;
+
+}
+
+.menu a {
+    display: block;
+    margin: 10px 0;
+    text-decoration: none;
+    color: #333;
+}
+
+.menu.active {
+    display: block;
+}
+
+
+
+
+
+
+
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+
+        /* Page Header */
+        .header {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Button Style */
+        .button1 {
+            background-color: #32B8CD;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .button1:hover {
+		background-color: White; /* Change background to white on hover */
+		color: #32B8CD; /* Change font color to #32B8CD on hover */
+        }
+		
+		
+		        /* Button2 Style */
+        .button2 {
+            background-color: #717171;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .button2:hover {
+            background-color: #717171;
+        }
+		
+		
+		
+
+        /* Link Style */
+        .link {
+            color: #32B8CD;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 8px;
+            position: relative;
+        }
+        .popup-content iframe {
+            width: 100%;
+            height: 400px;
+        }
+        .close-btn1 {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background-color: #32B8CD;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        .close-btn1:hover {
+            background-color: White;
+			color: #32B8CD;
+        }
+
+
+
+
+
+/* Button Styles */
+.button {
+    background-color: #32B8CD;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #32B8CD;
+}
+
+/* Popup Styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.popup-content iframe {
+    width: 100%;
+    height: 400px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background-color: #32B8CD;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.close-btn:hover {
+    background-color: #32B8CD;
+}
+
+
+
+/* Switch Style for Scheduling */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #32B8CD;;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+/* Button Styles */
+.button {
+    background-color: #32B8CD;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #32B8CD;
+}
+
+
+
+
+
+
+
+
+/* Table Container */
+.table-container {
+	width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+}
+
+/* Table Styles */
+table {
+    width: 100%; /* Ensure the table uses the full container width */
+    border-collapse: collapse;
+    font-size: 13px; /* Adjust font size for smaller appearance */
+    margin: 0 auto; /* Center the table within the container */
+}
+
+table thead th {
+    background-color: #515151;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    box-sizing: border-box; /* Include padding in width */
+    word-wrap: break-word; /* Allow text to wrap */
+	max-height: 2.4em; /* Limit to 2 lines of text */
+}
+
+table tbody td {
+	text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box; /* Include padding in width */
+    word-wrap: break-word; /* Allow text to wrap */
+    white-space: normal; /* Enable text wrapping */
+}
+
+/* Row Hover Effect */
+table tbody tr:hover {
+    background-color: #F4F4F4;
+}
+
+/* Ensure table headers and cells are flexible to wrap */
+table thead th, table tbody td {
+    max-width: none; /* Let content expand and wrap */
+    word-wrap: break-word; /* Ensure long text can wrap */
+    white-space: normal; /* Allow text to wrap */
+}
+
+
+
+
+.AIicon {
+    width: 12px; /* Adjust width */
+    height: 24px; /* Adjust height */
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .tabs a:nth-child(n+5) {
+        display: none;
+    }
+    
+    .more {
+        display: block;
+    }
+}
+

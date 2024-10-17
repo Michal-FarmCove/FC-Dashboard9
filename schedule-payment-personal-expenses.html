@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Expenses</title>
+    <link rel="stylesheet" href="styles.css">
+	<script src="More-Tab.js"></script>
+	<script src="More-Tab2.js"></script>
+<script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+	
+<script>
+function toggleInputs(checkbox) {
+    const row = checkbox.closest('tr');
+    const dateCell = row.querySelector('#date-input-cell-2');
+    const amountCell = row.querySelector('#amount-input-cell-2');
+    
+    if (checkbox.checked) {
+        // Use a date input for a date picker
+        dateCell.innerHTML = '<input type="date" class="date-input" />';
+        amountCell.innerHTML = '<input type="number" class="amount-input" placeholder="Enter amount" step="0.01" />';
+    } else {
+        // Clear inputs when checkbox is unchecked
+        dateCell.innerHTML = '';
+        amountCell.innerHTML = '';
+    }
+}
+
+</script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="Farm Cove Horizontal Logo.png" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="magnifying glass.png" alt="Search" class="icon">
+            <img src="bell.png" alt="Notifications" class="icon">
+            <img src="avatar.png" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Hidden Menu for Mobile View -->
+    <div class="tabs">
+        <a href="index.html">Home</a>
+        <a href="approvals.html">Approvals</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html">Film Details</a>
+        <a href="reporting.html">Reports</a>
+        <a href="schedule-payment.html" class="active">Schedule Payment</a>
+        <a href="pay.html">Pay</a>
+		
+				<!-- More Button  -->
+		<div class="more">
+			More
+			<div class="more-dropdown"></div>
+		</div>
+		
+    </div>
+
+    <!-- Sub-navigation Bar for Schedule Payment -->
+    <div class="tabs2">
+        <a href="schedule-payment.html">Invoices</a>
+        <a href="schedule-payment-personal-expenses.html" class="active">Personal Expenses</a>
+        <a href="schedule-payment-expense-account.html">Expense Account Reconciliations</a>
+        <a href="schedule-payment-payroll.html">Payroll Submission</a>
+		
+				<!-- More Button -->
+		<div class="more-tabs2">
+			More
+			<div class="more-dropdown-tabs2"></div> 
+		</div>
+		
+    </div>
+
+    <!-- Table for Personal Expenses -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref.</th>
+                    <th>Ref No.</th>
+                    <th>Supplier</th>
+                    <th>Status</th>
+                    <th>Tran. Date</th>
+                    <th>Due Date</th>
+                    <th>Total</th>
+                    <th>Balance</th>
+                    <th>Schedule</th>
+                    <th>Amount to Pay</th>
+                    <th>Sch. Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>TRX-0883</td>
+                    <td>T24A38</td>
+                    <td>Chris Smith - Gaffer</td>
+                    <td>Approved</td>
+                    <td>05/03/24</td>
+                    <td>--</td>
+                    <td>£110.91</td>
+                    <td>£100.00</td>
+                    <td>
+						<label class="switch">
+							<input type="checkbox" onchange="toggleInputs(this)">
+							<span class="slider round"></span>
+						</label>
+                    </td>
+						<td class="amount-cell" id="amount-input-cell-2"></td> <!-- Default to empty -->
+						<td class="date-cell" id="date-input-cell-2"></td> <!-- Default to empty -->
+						<td><button class="button">View</button></td>
+                </tr>
+
+                <tr>
+                    <td>TRX-0884</td>
+                    <td>T24A39</td>
+                    <td>Johny Bravo - Director</td>
+                    <td>Approved</td>
+                    <td>05/03/24</td>
+                    <td>--</td>
+                    <td>£2,500.00</td>
+                    <td>£100.00</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" checked disabled>
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td>£2,400.00</td>
+                    <td>10/03/24</td>
+                    <td><button class="button">View</button></td>
+                </tr>
+
+                <!-- Additional Rows -->
+                <tr>
+                    <td>TRX-0885</td>
+                    <td>T24A40</td>
+                    <td>Will LaValet - Production Designer</td>
+                    <td>Approved</td>
+                    <td>06/03/24</td>
+                    <td>--</td>
+                    <td>£1,000.00</td>
+                    <td>£500.00</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" checked disabled>
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td>£500.00</td>
+                    <td>08/03/24</td>
+                    <td><button class="button">View</button></td>
+                </tr>
+
+                <tr>
+                    <td>TRX-0886</td>
+                    <td>T24A41</td>
+                    <td>Judy Brown - Costume Designer</td>
+                    <td>Approved</td>
+                    <td>08/03/24</td>
+                    <td>--</td>
+                    <td>£600.00</td>
+                    <td>£300.00</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" checked disabled>
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td>£300.00</td>
+                    <td>12/03/24</td>
+                    <td><button class="button">View</button></td>
+                </tr>
+
+                <tr>
+                    <td>TRX-0887</td>
+                    <td>T24A42</td>
+                    <td>Daniel Smith - Production Assistant</td>
+                    <td>Approved</td>
+                    <td>08/03/24</td>
+                    <td>--</td>
+                    <td>£500.00</td>
+                    <td>£100.00</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" checked disabled>
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td>£400.00</td>
+                    <td>12/03/24</td>
+                    <td><button class="button">View</button></td>
+                </tr>
+                <!-- Additional Rows End -->
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

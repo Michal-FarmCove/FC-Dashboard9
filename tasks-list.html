@@ -1,0 +1,42 @@
+<!-- Popup Window -->
+<div id="popup" class="popup">
+    <!-- Main content for Approve/Reject -->
+    <div class="popup-content" id="popup-main">
+        <button class="close-btn1" onclick="closePopup()">X</button>
+        <h3>Project details</h3>
+
+        <!-- Form with Styled Fields -->
+        <form class="details-form">
+            <div class="form-group">
+                <label for="provisional-title">Provisional Title</label>
+                <input type="text" id="provisional-title" value="To the Moon!" readonly>
+            </div>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" value="To the Moon!" readonly>
+            </div>
+            <div class="form-group">
+                <label for="fpc-country">Overseas FPC Country</label>
+                <input type="text" id="fpc-country" value="India" readonly>
+            </div>
+            <div class="form-group">
+                <label for="film-language">Film Language</label>
+                <input type="text" id="film-language" value="Hindi" readonly>
+            </div>
+            <div class="form-group">
+                <label for="indian-rating">Desired Indian CBFC Rating</label>
+                <input type="text" id="indian-rating" value="UA" readonly>
+            </div>
+            <div class="form-group">
+                <label for="uk-rating">Desired UK BBFC Rating</label>
+                <input type="text" id="uk-rating" value="Parental Guidance" readonly>
+            </div>
+        </form>
+
+        <!-- Buttons at the Bottom -->
+        <div class="popup-buttons">
+            <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+            <button class="save-btn" onclick="saveDetails()">Save</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay</title>
+    <link rel="stylesheet" href="styles.css">
+	<script src="More-Tab.js"></script>
+	<script src="pay-all.js"></script>
+	<script src="save-cancel.js"></script>
+	
+	
+		<style>
+		/* Popup general styles */
+
+
+		.popup-content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background-color: #fff;
+			padding: 50px;
+			border-radius: 8px;
+			width: auto;
+
+		}
+
+		#notification-message {
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+
+		#popup-image {
+			width: 100%;
+			max-width: 800px;
+			margin-bottom: 10px;
+			margin-top: 10px;
+		}
+
+		.button1, .button2 {
+			padding: 8px 16px;
+			background-color: #32B8CD;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+			margin-right: 5px;
+		}
+
+		.button1:hover, .button2:hover {
+			background-color: #1f8ba6;
+		}
+
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #333;
+			min-width: 100px;
+			padding: 10px;
+			border-radius: 4px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		.dropdown-content button {
+			color: #fff;
+			background: none;
+			border: none;
+			padding: 8px 10px;
+			text-align: left;
+			cursor: pointer;
+			width: 100%;
+		}
+
+		.dropdown-content button:hover {
+			background-color: #444;
+		}
+
+		.button-container {
+			display: flex;
+			justify-content: center;
+			margin-top: 20px;
+		}
+	</style>
+	
+	
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="Farm Cove Horizontal Logo.png" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="magnifying glass.png" alt="Search" class="icon">
+            <img src="bell.png" alt="Notifications" class="icon">
+            <img src="avatar.png" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Hidden Menu for Mobile View -->
+    <div class="tabs">
+        <a href="index.html">Home</a>
+        <a href="approvals.html">Approvals</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html">Film Details</a>
+        <a href="reporting.html">Reports</a>
+        <a href="schedule-payment.html">Schedule Payment</a>
+        <a href="pay.html" class="active">Pay</a>
+		
+		<!-- More Button -->
+		<div class="more">
+			More
+			<div class="more-dropdown"></div>
+		</div>
+		
+		
+    </div>
+	
+    <div class="tabs2">
+        <a href="pay.html">To Pay</a>
+        <a href="pay-upcoming.html" class="active">Upcoming Payments</a>
+    </div>
+
+    <!-- Page Header -->
+    <div class="header">
+        <h1>Upcoming Payments</h1>
+    </div>
+
+    <!-- Pay All Switch -->
+    <div class="pay-all-container" style="text-align: center; margin-bottom: 10px;">
+        <span class="pay-all-label">Pay all</span>
+        <label class="switch">
+            <input type="checkbox" onchange="toggleAll(this)">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <!-- Table for Payments -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref.</th>
+                    <th>Amount</th>
+                    <th>Sch. Payment Date</th>
+                    <th>Paying</th>
+                    <th>Bank Payee Name</th>
+                    <th>Bank Name</th>
+                    <th>Bank Account No.</th>
+                    <th>Bank Sort Code</th>
+                    <th>Pay</th>
+                    <th>Pay Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="row1">
+                    <td>PAY-001</td>
+                    <td>£2,333.98</td>
+                    <td>03/10/24</td>
+                    <td>12 September Studio Limited - Costume</td>
+                    <td>Bollywood Ltd</td>
+                    <td>Chase Bank</td>
+                    <td>12345678</td>
+                    <td>20-30-40</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" class="pay-switch-input" onchange="toggleInputs(this, 'row1')">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr id="row2">
+                    <td>PAY-002</td>
+                    <td>£4,280.00</td>
+                    <td>04/10/24</td>
+                    <td>12 September Studio Limited - Costume</td>
+                    <td>Bollywood Ltd</td>
+                    <td>Chase Bank</td>
+                    <td>87654321</td>
+                    <td>30-40-50</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" class="pay-switch-input" onchange="toggleInputs(this, 'row2')">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr id="row3">
+                    <td>PAY-003</td>
+                    <td>£3,600.98</td>
+                    <td>05/10/24</td>
+                    <td>12 September Studio Limited - Costume</td>
+                    <td>Bollywood Ltd</td>
+                    <td>Chase Bank</td>
+                    <td>65432189</td>
+                    <td>40-50-60</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" class="pay-switch-input" onchange="toggleInputs(this, 'row3')">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr id="row4">
+                    <td>PAY-004</td>
+                    <td>£6,533.98</td>
+                    <td>06/10/24</td>
+                    <td>12 September Studio Limited - Costume</td>
+                    <td>Bollywood Ltd</td>
+                    <td>Chase Bank</td>
+                    <td>23456789</td>
+                    <td>50-60-70</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" class="pay-switch-input" onchange="toggleInputs(this, 'row4')">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr id="row5">
+                    <td>PAY-005</td>
+                    <td>£9,876.45</td>
+                    <td>07/10/24</td>
+                    <td>12 September Studio Limited - Costume</td>
+                    <td>Bollywood Ltd</td>
+                    <td>Chase Bank</td>
+                    <td>43218765</td>
+                    <td>60-70-80</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" class="pay-switch-input" onchange="toggleInputs(this, 'row5')">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td class="date-cell"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+<!-- Buttons Below the Table -->
+<div class="button-container" id="save-cancel-buttons" style="display: none;">
+    <button class="button2" onclick="cancelChanges()">Cancel</button>
+    <button class="button2" onclick="saveChanges()">Save</button>
+    <div class="dropdown">
+        <button class="button2" onclick="toggleDropdown()">▼</button>
+        <div class="dropdown-content">
+            <button onclick="exportCSV()">Export CSV</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- General Popup for Messages -->
+<div id="notification-popup" class="popup">
+    <div class="popup-content">
+        <p id="notification-message">Message goes here</p>
+        <img id="popup-image" src="cvs2.jpg" alt="CSV Export Placeholder" style="display: none;">
+        <button class="button2" onclick="closeNotification()">OK</button>
+    </div>
+</div>
+
+
+
+
+
+</body>
+</html>

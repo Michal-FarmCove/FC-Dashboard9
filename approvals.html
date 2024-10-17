@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approvals Interface</title>
+    <link rel="stylesheet" href="styles.css">
+	<script src="More-Tab.js"></script>
+	<script src="More-Tab2.js"></script>
+	<script src="popup-window3.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="Farm Cove Horizontal Logo.png" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="magnifying glass.png" alt="Search" class="icon">
+            <img src="bell.png" alt="Notifications" class="icon">
+            <img src="avatar.png" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Main Navigation Tabs -->
+    <div class="tabs">
+        <a href="index.html">Home</a>
+        <a href="approvals.html" class="active">Approvals</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html">Film Details</a>
+        <a href="reporting.html">Reports</a>
+        <a href="schedule-payment.html">Schedule Payment</a>
+        <a href="pay.html">Pay</a>
+		
+				<!-- More Button -->
+		<div class="more">
+			More
+			<div class="more-dropdown"></div>
+		</div>
+			
+		
+    </div>
+
+    <!-- Approvals Sub Navigation -->
+    <div class="tabs2">
+        <a href="approvals.html" class="active">Query Responses</a>
+        <a href="approval-payroll-invoices.html">Payroll Invoices</a>
+		<a href="approval-expense-account.html">Expense Account Reconciliations</a>
+		<a href="approval-history.html">Approval History</a>
+		
+				<!-- More Button -->
+		<div class="more-tabs2">
+			More
+			<div class="more-dropdown-tabs2"></div> 
+		</div>
+		
+    </div>
+	
+
+    <!-- Page Header -->
+    <div class="header">
+        <h1>Query Responses</h1>
+    </div>
+
+
+        <!-- Table for Approvals -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Submitter</th>
+                        <th>Query</th>
+                        <th>Query Response</th>
+                        <th>Internal Notes</th>
+                        <th>Review</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Transaction</td>
+                        <td>Coffee for the Director</td>
+                        <td>£3.50</td>
+                        <td>Jenny</td>
+                        <td>Who approved it?</td>
+                        <td>It was approved by John</td>
+                        <td>--</td>
+                        <td><button class="button1" onclick="openPopup()">Review</button></td>
+                    </tr>
+					<tr class="grey-row">
+                        <td>Transaction</td>
+                        <td>AAA Batteries</td>
+                        <td>£12.99</td>
+                        <td>Raaja</td>
+                        <td>Who approved it?</td>
+                        <td>It was approved by John</td>
+                        <td>--</td>
+                        <td><button class="button2" onclick="openPopup()"disabled>Review</button></td>
+                    </tr >
+					<tr class="grey-row">
+                        <td>Transaction</td>
+                        <td>Fuel, Approved by john.</td>
+                        <td>£50.21</td>
+                        <td>Mike</td>
+                        <td>What is the vehicle's number plate?</td>
+                        <td>It's GK72 ZLD</td>
+                        <td>--</td>
+                        <td><button class="button2" onclick="openPopup()" disabled>Review</button></td>
+                    </tr>
+					<tr class="grey-row">
+                        <td>Transaction</td>
+                        <td>Breakfast for the Director</td>
+                        <td>£15.99</td>
+                        <td>Jenny</td>
+                        <td>Who approved it?</td>
+                        <td>It was approved by John</td>
+                        <td>--</td>
+                        <td><button class="button2" onclick="openPopup()" disabled>Review</button></td>
+                    </tr>
+					<tr class="grey-row">
+                        <td>Transaction</td>
+                        <td>Walkie-talkie battery</td>
+                        <td>£19.99</td>
+                        <td>Brian</td>
+                        <td>Please, return it</td>
+                        <td>Okay, no problem</td>
+                        <td>--</td>
+                        <td><button class="button2" onclick="openPopup()" disabled>Review</button></td>
+                    </tr>
+                    <!-- More rows can be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Content Section for Approval History (Hidden by Default) -->
+    <div id="approval-history" class="content-section" style="display:none;">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Farm Cove Reference</th>
+                        <th>Document Number</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>My Approval Status</th>
+                        <th>Approval Status</th>
+                        <th>Review Document</th>
+                        <th>* AI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TRX-000924</td>
+                        <td>118</td>
+                        <td>Payroll Invoice</td>
+                        <td>£414.00</td>
+                        <td>Approved</td>
+                        <td>Approved</td>
+                        <td><button class="button">Review Document</button></td>
+                        <td><i class="icon"></i></td>
+                    </tr>
+                    <!-- More rows can be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+	
+
+<!-- Popup Window -->
+<div id="popup" class="popup">
+    <!-- Main content for Approve/Reject -->
+    <div class="popup-content" id="popup-main">
+        <button class="close-btn1" onclick="closePopup()">X</button>
+        <h3>Document Preview</h3>
+        <img src="invoice-approval-query.png" alt="Document Image" style="width:100%; height:auto;">
+        <div class="popup-buttons">
+            <button onclick="approveDocument()">Approve</button>
+            <button onclick="queryDocument()">Query</button>
+            <button onclick="rejectDocument()">Reject</button>
+        </div>
+    </div>
+
+    <!-- Approval/Rejection Message Content -->
+    <div class="popup-content approval-message" id="approval-message" style="display: none;">
+        <p class="message-text">Message goes here</p>
+        <button class="ok-btn" onclick="closePopup()">OK</button>
+    </div>
+
+    <!-- Query Input Content -->
+    <div class="popup-content query-popup" id="query-popup" style="display: none;">
+        <button class="close-btn1" onclick="closePopup()">X</button>
+        <h3>Submit Query</h3>
+        <textarea placeholder="Enter your query here..."></textarea>
+        <div class="popup-buttons">
+            <button onclick="submitQuery()">Submit Query</button>
+        </div>
+    </div>
+</div>
+	
+	
+
+</body>
+</html>
+
+
+
+

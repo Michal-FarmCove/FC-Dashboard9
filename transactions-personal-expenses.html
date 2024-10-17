@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions - Personal Expenses</title>
+    <link rel="stylesheet" href="styles.css">
+	<script src="More-Tab.js"></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="https://via.placeholder.com/100x50" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="https://via.placeholder.com/20" alt="Search" class="icon">
+            <img src="https://via.placeholder.com/20" alt="Notifications" class="icon">
+            <img src="https://via.placeholder.com/20" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+       <div class="tabs">
+        <a href="index.html">Home</a>
+        <a href="approvals.html">Approvals</a>
+        <a href="transactions.html" class="active">Transactions</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html">Film Details</a>
+        <a href="reporting.html">Reports</a>
+        <a href="schedule-payment.html">Schedule Payment</a>
+        <a href="pay.html">Pay</a>
+		
+								<!-- More Button -->
+		<div class="more">
+			More
+			<div class="more-dropdown"></div>
+		</div>
+		
+    </div>
+
+    <!-- Sub-navigation Bar for Transactions -->
+    <div class="tabs sub-navbar">
+	    <a href="transactions-reimbursement.html">Personal Expense Reimbursement Claims</a>
+        <a href="transactions-payroll.html">Payroll Submission</a>
+	   <a href="transactions.html" class="active">Invoices Submission</a>
+    </div>
+
+    <!-- Page Header -->
+    <div class="header">
+        <h1>Personal Expenses</h1>
+        <p>1 of 1 items selected</p>
+    </div>
+
+    <!-- Table for Transactions -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Reference</th>
+                    <th>Receipt Number</th>
+                    <th>Crew Member</th>
+                    <th>Status</th>
+                    <th>Transaction Date</th>
+                    <th>Description</th>
+                    <th>Total</th>
+                    <th>File Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>TRX - 000067</td>
+                    <td>1502</td>
+                    <td>John’s Reimbursement Account</td>
+                    <td>Production Approval Required</td>
+                    <td>26/07/2024</td>
+                    <td>This is a receipt from Esso for the purchase of 27.16 liters of £1.529 per liter.</td>
+                    <td>£41.53</td>
+                    <td><a href="#" class="link">Link</a></td>
+                </tr>
+                <tr>
+                    <td>TRX - 000068</td>
+                    <td>1503</td>
+                    <td>John’s Reimbursement Account</td>
+                    <td>Production Approval Required</td>
+                    <td>28/07/2024</td>
+                    <td>This is a receipt from Costa Coffee for a Flat White</td>
+                    <td>£3.50</td>
+                    <td><a href="#" class="link">Link</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

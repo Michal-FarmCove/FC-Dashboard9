@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approval History</title>
+    <link rel="stylesheet" href="styles.css">
+	<script src="More-Tab.js"></script>
+	<script src="More-Tab2.js"></script>
+	<script src="popup-window.js"></script>
+	<script src="popup-window3.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="Farm Cove Horizontal Logo.png" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="magnifying glass.png" alt="Search" class="icon">
+            <img src="bell.png" alt="Notifications" class="icon">
+            <img src="avatar.png" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Main Navigation Tabs -->
+    <div class="tabs">
+        <a href="index.html">Home</a>
+        <a href="approvals.html" class="active">Approvals</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html">Film Details</a>
+        <a href="reporting.html">Reports</a>
+        <a href="schedule-payment.html">Schedule Payment</a>
+        <a href="pay.html">Pay</a>
+		
+				<!-- More Button -->
+		<div class="more">
+			More
+			<div class="more-dropdown"></div>
+		</div>
+    </div>
+
+    <!-- Approvals Sub Navigation -->
+    <div class="tabs2">
+        <a href="approvals.html">Query Responses</a>
+        <a href="approval-payroll-invoices.html" class="active">Payroll Invoices</a>
+		<a href="approval-expense-account.html">Expense Account Reconciliations</a>
+		<a href="approval-history.html">Approval History</a>
+		
+				<!-- More Button -->
+		<div class="more-tabs2">
+			More
+			<div class="more-dropdown-tabs2"></div> 
+		</div>
+		
+    </div>
+
+    <!-- Page Header -->
+    <div class="header">
+        <h1>Payroll Invoices</h1>
+    </div>
+
+    <!-- Table for Approval History -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Submitter ID</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+					<th>Internal Notes</th>
+                    <th>Submitter Notes</th>
+                    <th>Review</th>
+                </tr>
+            </thead>
+			
+            <tbody>
+                <tr>
+                    <td>24/07/2023</td>
+                    <td>Johny@farmcove.co.uk</td>
+                    <td>Payroll Invoice - TRX-000012 - Johny Bravo - Production Manager</td>
+                    <td>£975.00</td>
+					<td>--</td>
+                    <td>--</td>
+                    <td><button class="button1" onclick="openPopup()">Review</button></td>
+                </tr>
+				
+                <tr class="grey-row">
+                    <td>01/08/2023</td>
+                    <td>Lisa@farmcove.co.uk</td>
+                    <td>Payroll Invoice - TRX-000013 - Lisa Taylor - Marketing Consultant</td>
+                    <td>£1,200.00</td>
+					<td>--</td>
+                    <td>--</td>
+                    <td><button class="button2" onclick="openPopup()"disabled>Review</button></td>
+                </tr>
+				
+                <tr class="grey-row">
+                    <td>15/08/2023</td>
+                    <td>Mark@farmcove.co.uk</td>
+                    <td>Payroll Invoice - TRX-000014 - Mark Smith - Freelance Editor</td>
+                    <td>£680.00</td>
+					<td>--</td>
+                    <td>--</td>
+                    <td><button class="button2" onclick="openPopup()"disabled>Review</button></td>
+                </tr>
+				
+                <tr class="grey-row">
+                    <td>29/08/2023</td>
+                    <td>Susan@farmcove.co.uk</td>
+                    <td>Payroll Invoice - TRX-000015 - Susan Lee - Sales Manager</td>
+                    <td>£430.00</td>
+					<td>--</td>
+                    <td>--</td>
+                    <td><button class="button2" onclick="openPopup()"disabled>Review</button></td>
+                </tr>
+				
+                <tr class="grey-row">
+                    <td>05/09/2023</td>
+                    <td>David@farmcove.co.uk</td>
+                    <td>Payroll Invoice - TRX-000016 - David Wong - Production Assistant</td>
+                    <td>£1,050.00</td>
+					<td>--</td>
+                    <td>--</td>
+                    <td><button class="button2" onclick="openPopup()"disabled>Review</button></td>
+                </tr>
+				
+                <!-- More rows can be added here -->
+            </tbody>
+        </table>
+    </div>
+
+	
+<!-- Popup Window -->
+<div id="popup" class="popup">
+    <!-- Main content for Approve/Reject -->
+    <div class="popup-content" id="popup-main">
+        <button class="close-btn1" onclick="closePopup()">X</button>
+        <h3>Document Preview</h3>
+        <img src="JohnyInv.png" alt="Document Image" style="width:100%; height:auto;">
+        <div class="popup-buttons">
+            <button onclick="approveDocument()">Approve</button>
+            <button onclick="queryDocument()">Query</button>
+            <button onclick="rejectDocument()">Reject</button>
+        </div>
+    </div>
+
+    <!-- Approval/Rejection Message Content -->
+    <div class="popup-content approval-message" id="approval-message" style="display: none;">
+        <p class="message-text">Message goes here</p>
+        <button class="ok-btn" onclick="closePopup()">OK</button>
+    </div>
+
+    <!-- Query Input Content -->
+    <div class="popup-content query-popup" id="query-popup" style="display: none;">
+        <button class="close-btn1" onclick="closePopup()">X</button>
+        <h3>Submit Query</h3>
+        <textarea placeholder="Enter your query here..."></textarea>
+        <div class="popup-buttons">
+            <button onclick="submitQuery()">Submit Query</button>
+        </div>
+    </div>
+</div>
+	
+
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="Farm Cove Horizontal Logo.png" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="magnifying glass.png" alt="Search" class="icon">
+            <img src="bell.png" alt="Notifications" class="icon">
+            <img src="avatar.png" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Hidden Menu (toggle with the hamburger) -->
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="approvals.html">Approvals</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html" class="active">Film Details</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="schedule-payment.html">Schedule Payment</a>
+        <a href="pay.html">Pay</a>
+    </div>
+
+    <div class="welcome-section">
+        <h1>WELCOME!</h1>
+        <p>Please select which of your films you would like to look at</p>
+    </div>
+
+    <!-- Wrapping everything inside a container for adjustable size -->
+    <div class="container">
+        <!-- Stage Section with Containers -->
+        <div class="progress-section">
+            <div class="stage-container" id="proposed-container">
+                <div class="progress-stage" id="proposed">
+                    Proposed
+                </div>
+            </div>
+
+            <div class="divider"></div>
+			
+			
+			
+
+			<div class="stage-container" id="planning-container">
+				<div class="progress-stage" id="planning">
+					Planning
+				</div>
+				<div class="poster-container" id="poster1" draggable="true">
+					
+					<!-- First poster with text container -->
+					<div class="overlap-unit">
+						<div class="cheeky-text-container">
+							<a href="approvals.html" class="movie-title">To the Moon!</a>
+						</div>
+						<a href="approvals.html">
+							<img src="movie-poster.png" alt="Poster Placeholder">
+						</a>
+					</div>
+
+					<!-- Second overlapping poster with text container -->
+					<div class="overlap-unit">
+						<div class="cheeky-text-container">
+							<a href="approvals.html" class="movie-title">Forgotten Souls</a>
+						</div>
+						<a href="approvals.html">
+							<img src="movie-poster7.png" alt="Poster Placeholder">
+						</a>
+					</div>
+					
+				</div>
+			</div>
+
+
+
+            <div class="divider"></div>
+
+		<div class="stage-container" id="preproduction-container">
+			<div class="progress-stage" id="pre-production">
+				Pre-production
+			</div>
+			<div class="poster-container" id="poster1" draggable="true">
+				
+				<!-- First poster with text container -->
+				<div class="overlap-unit">
+					<div class="cheeky-text-container">
+						<a href="approvals.html" class="movie-title">Lost Signal</a>
+					</div>
+					<a href="approvals.html">
+						<img src="movie-poster5.png" alt="Poster Placeholder">
+					</a>
+				</div>
+
+				<!-- Second overlapping poster with text container -->
+				<div class="overlap-unit">
+					<div class="cheeky-text-container">
+						<a href="approvals.html" class="movie-title">Butterfly Effect</a>
+					</div>
+					<a href="approvals.html">
+						<img src="movie-poster6.png" alt="Poster Placeholder">
+					</a>
+				</div>
+				
+				<!-- Third overlapping poster with text container -->
+				<div class="overlap-unit">
+					<div class="cheeky-text-container">
+						<a href="approvals.html" class="movie-title">Oops! Wrong Shaadi</a>
+					</div>
+					<a href="approvals.html">
+						<img src="movie-poster2.png" alt="Poster Placeholder">
+					</a>
+				</div>
+					
+			</div>
+		</div>
+			
+
+            <div class="divider"></div>
+
+		<div class="stage-container" id="shooting-container">
+			<div class="progress-stage" id="shooting">
+				Shooting
+			</div>
+			<div class="poster-container" id="poster1" draggable="true">
+				
+				<!-- Single poster with text container -->
+				<div class="overlap-unit">
+					<div class="cheeky-text-container">
+						<a href="approvals.html" class="movie-title">The Mystic Warrior</a>
+					</div>
+					<a href="approvals.html">
+						<img src="movie-poster3.png" alt="Poster Placeholder">
+					</a>
+				</div>
+				
+			</div>
+		</div>
+
+
+            <div class="divider"></div>
+
+<div class="stage-container" id="postproduction-container">
+    <div class="progress-stage" id="post-production">
+        Post-production
+    </div>
+    
+    <!-- Single poster with text container -->
+    <div class="poster-container" id="poster1" draggable="true">
+        <div class="overlap-unit">
+            <div class="cheeky-text-container">
+                <a href="approvals.html" class="movie-title">Echoes of Eternity</a>
+            </div>
+            <a href="approvals.html">
+                <img src="movie-poster4.png" alt="Poster Placeholder">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+            <div class="divider"></div>
+            <div class="stage-container" id="complete-container">
+                <div class="progress-stage" id="complete">
+                    Complete
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+
+        // Drag-and-drop functionality
+        const poster = document.getElementById('poster1');
+        const containers = document.querySelectorAll('.stage-container');
+
+        poster.addEventListener('dragstart', dragStart);
+
+        containers.forEach(container => {
+            container.addEventListener('dragover', dragOver);
+            container.addEventListener('drop', drop);
+        });
+
+        function dragStart(e) {
+            e.dataTransfer.setData('text/plain', e.target.id);
+        }
+
+        function dragOver(e) {
+            e.preventDefault();
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            const id = e.dataTransfer.getData('text');
+            const draggableElement = document.getElementById(id);
+            e.target.appendChild(draggableElement);
+        }
+    </script>
+</body>
+</html>

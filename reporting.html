@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function showTab(tabId) {
+            // Hide all sections
+            document.getElementById('query-responses').style.display = 'none';
+            document.getElementById('approval-history').style.display = 'none';
+            
+            // Show the selected section
+            document.getElementById(tabId).style.display = 'block';
+
+            // Update active tab
+            document.querySelectorAll('.approvals-sub-navbar a').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            document.querySelector('[data-tab="' + tabId + '"]').classList.add('active');
+        }
+
+        // Initialize the page to show Query Responses by default
+        window.onload = function() {
+            showTab('query-responses');
+        };
+		
+		
+		
+		
+		
+		
+// Function to toggle the visibility of the dropdown menu
+function toggleMoreMenu() {
+    const moreDropdown = document.querySelector('.more-dropdown');
+    moreDropdown.classList.toggle('show');
+}
+
+// Function to adjust navigation items based on available space
+function adjustNavItems() {
+    const tabs = document.querySelector('.tabs');
+    const moreButton = document.querySelector('.more');
+    const moreDropdown = document.querySelector('.more-dropdown');
+
+    // Reset dropdown content and show all tabs initially
+    moreDropdown.innerHTML = '';
+    Array.from(tabs.children).forEach(tab => {
+        if (!tab.classList.contains('more')) {
+            tab.style.display = 'inline-block';
+        }
+    });
+
+    // Calculate the available space and hide items if necessary
+    let availableWidth = tabs.clientWidth - moreButton.clientWidth;
+    Array.from(tabs.children).forEach(tab => {
+        if (!tab.classList.contains('more') && availableWidth < tab.clientWidth) {
+            tab.style.display = 'none';
+
+            // Clone the tab and append to dropdown
+            const dropdownItem = tab.cloneNode(true);
+            dropdownItem.style.display = 'block';  // Ensure cloned item displays correctly
+            dropdownItem.style.padding = '8px 12px'; // Match dropdown style
+            moreDropdown.appendChild(dropdownItem);
+        } else if (!tab.classList.contains('more')) {
+            availableWidth -= tab.clientWidth;
+        }
+    });
+
+    // Show the "More" button only if there are items in the dropdown
+    moreButton.style.display = moreDropdown.children.length > 0 ? 'inline-block' : 'none';
+}
+
+// Event listener to toggle the dropdown menu on click
+document.addEventListener("DOMContentLoaded", function() {
+    const moreButton = document.querySelector('.more');
+    const moreDropdown = document.querySelector('.more-dropdown');
+
+    // Attach event listener to More button
+    moreButton.addEventListener('click', function(event) {
+        event.stopPropagation();  // Prevent click from bubbling up
+        moreDropdown.classList.toggle('show');
+    });
+
+    // Close the dropdown if clicking outside
+    window.addEventListener('click', function(event) {
+        if (!moreButton.contains(event.target) && !moreDropdown.contains(event.target)) {
+            moreDropdown.classList.remove('show');
+        }
+    });
+
+    // Adjust navigation items when page is loaded and on window resize
+    window.addEventListener('resize', adjustNavItems);
+    window.addEventListener('load', adjustNavItems);
+});
+
+
+
+
+
+		
+		
+		
+		
+    </script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="Farm Cove Horizontal Logo.png" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="magnifying glass.png" alt="Search" class="icon">
+            <img src="bell.png" alt="Notifications" class="icon">
+            <img src="avatar.png" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Main Navigation Tabs -->
+    <div class="tabs">
+        <a href="index.html">Home</a>
+        <a href="approvals.html">Approvals</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html">Film Details</a>
+        <a href="reporting.html" class="active">Reports</a>
+        <a href="schedule-payment.html">Schedule Payment</a>
+        <a href="pay.html">Pay</a>
+		
+		<!-- More Button -->
+		<div class="more">
+			More
+			<div class="more-dropdown"></div>
+		</div>
+			
+		
+    </div>
+
+    <!-- Reports Container -->
+    <div class="outer-container">
+        <div class="film-details-container">
+            <div class="reports-container" style="display: flex; justify-content: space-around; margin: 5px auto; max-width: 900px;">
+                <div class="report" style="background-color: #fff; border: 1px solid #fff; border-radius: 8px; padding: 10px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0); text-align: center; width: 55%;">
+                    <img src="Dashboard 1.png" alt="Report 1" style="width: 100%; height: auto;">
+                </div>
+                <div class="report" style="background-color: #fff; border: 1px solid #fff; border-radius: 8px; padding: 10px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0); text-align: center; width: 55%;">
+                    <img src="dashboard 2.png" alt="Report 2" style="width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

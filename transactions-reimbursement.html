@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions - Personal Expense Reimbursement Claims</title>
+    <link rel="stylesheet" href="styles.css">
+	<script src="More-Tab.js"></script>
+	<script src="More-Tab2.js"></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="Farm Cove Horizontal Logo.png" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="magnifying glass.png" alt="Search" class="icon">
+            <img src="bell.png" alt="Notifications" class="icon">
+            <img src="avatar.png" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Hidden Menu for Mobile View -->
+    <div class="tabs">
+        <a href="index.html">Home</a>
+        <a href="approvals.html">Approvals</a>
+        <a href="transactions-reimbursement.html" class="active">Transactions</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html">Film Details</a>
+        <a href="reporting.html">Reports</a>
+        <a href="schedule-payment.html">Schedule Payment</a>
+        <a href="pay.html">Pay</a>
+		
+		<!-- More Button -->
+		<div class="more">
+			More
+			<div class="more-dropdown"></div>
+		</div>
+    </div>
+
+    <!-- Sub-navigation Bar for Transactions -->
+    <div class="tabs2">
+        <a href="transactions-reimbursement.html" class="active">Personal Expense Reimbursement Claims</a>
+        <a href="transactions-payroll.html">Payroll Submission</a>
+        <a href="transactions-expenses.html">Expenses</a>
+		
+		<!-- More Button -->
+		<div class="more-tabs2">
+			More
+			<div class="more-dropdown-tabs2"></div> 
+		</div>
+		
+		
+    </div>
+
+    <!-- Page Header -->
+    <div class="header">
+        <h1>Personal Expense Reimbursement Claims</h1>
+        <p>1 of 5 items selected</p>
+    </div>
+
+    <!-- Table for Transactions -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Reference</th>
+                    <th>Description</th>
+                    <th>Name and Role</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Balance</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>TG-000010</td>
+                    <td>Reimbursement for walkie-talkie battery</td>
+                    <td>John, Production Assistant</td>
+                    <td>Production Approval Required</td>
+                    <td>£93.76</td>
+                    <td>£8.65</td>
+                    <td><button class="button">View Group Transactions</button></td>
+                </tr>
+                <tr>
+                    <td>TG-000011</td>
+                    <td>Reimbursement for fuel expense</td>
+                    <td>Sarah, Camera Operator</td>
+                    <td>Production Approval Required</td>
+                    <td>£45.50</td>
+                    <td>£5.00</td>
+                    <td><button class="button">View Group Transactions</button></td>
+                </tr>
+                <tr>
+                    <td>TG-000012</td>
+                    <td>Reimbursement for catering supplies</td>
+                    <td>Michael, Catering Manager</td>
+                    <td>Production Approval Required</td>
+                    <td>£120.00</td>
+                    <td>£10.00</td>
+                    <td><button class="button">View Group Transactions</button></td>
+                </tr>
+                <tr>
+                    <td>TG-000013</td>
+                    <td>Reimbursement for makeup kits</td>
+                    <td>Jessica, Makeup Artist</td>
+                    <td>Production Approval Required</td>
+                    <td>£75.00</td>
+                    <td>£7.50</td>
+                    <td><button class="button">View Group Transactions</button></td>
+                </tr>
+                <tr>
+                    <td>TG-000014</td>
+                    <td>Reimbursement for set repair</td>
+                    <td>Alex, Set Designer</td>
+                    <td>Production Approval Required</td>
+                    <td>£200.00</td>
+                    <td>£20.00</td>
+                    <td><button class="button">View Group Transactions</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

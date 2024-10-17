@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approval History</title>
+    <link rel="stylesheet" href="styles.css">
+	<script src="More-Tab.js"></script>
+	<script src="More-Tab2.js"></script>
+	<script src="popup-window.js"></script>
+	<script src="popup-window2.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="Farm Cove Horizontal Logo.png" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="magnifying glass.png" alt="Search" class="icon">
+            <img src="bell.png" alt="Notifications" class="icon">
+            <img src="avatar.png" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Main Navigation Tabs -->
+    <div class="tabs">
+        <a href="index.html">Home</a>
+        <a href="approvals.html" class="active">Approvals</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html">Film Details</a>
+        <a href="reporting.html">Reports</a>
+        <a href="schedule-payment.html">Schedule Payment</a>
+        <a href="pay.html">Pay</a>
+		
+				<!-- More Button -->
+		<div class="more">
+			More
+			<div class="more-dropdown"></div>
+		</div>
+    </div>
+
+    <!-- Approvals Sub Navigation -->
+    <div class="tabs2">
+        <a href="approvals.html"">Query Responses</a>
+        <a href="approval-payroll-invoices.html">Payroll Invoices</a>
+		<a href="approval-expense-account.html">Expense Account Reconciliations</a>
+		<a href="approval-history.html" class="active">Approval History</a>
+		
+				<!-- More Button -->
+		<div class="more-tabs2">
+			More
+			<div class="more-dropdown-tabs2"></div> 
+		</div>
+		
+    </div>
+
+    <!-- Page Header -->
+    <div class="header">
+        <h1>Approval History</h1>
+    </div>
+
+    <!-- Table for Approval History -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Reference Number</th>
+                    <th>Document Number</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+					<th>My Approval Status</th>
+                    <th>Approval Status</th>
+                    <th>Review</th>
+                    <th>* AI</th> 
+                </tr>
+            </thead>
+			
+            <tbody>
+
+
+				<tr>
+					<td>TRX-000924</td>
+					<td>118</td>
+					<td>Payroll Invoice</td>
+					<td>£414.00</td>
+					<td>Approved</td>
+					<td>Completed</td>
+					<td><button class="button1" onclick="openPopup('INV-118.png', [])">Review</button></td>
+					<td><img src="AI-Icon.png" alt="AI Icon" class="AIicon"></td>
+				</tr>
+
+				<tr>
+					<td>TRX-000925</td>
+					<td>INV-IL884</td>
+					<td>Invoice</td>
+					<td>£41,280.00</td>
+					<td>Query Sent</td>
+					<td>Queried</td>
+					<td><button class="button1" onclick="openPopup('INV-IL884.png', ['approve', 'query', 'queryLineItems'])">Review</button></td>
+					<td><img src="AI-Icon.png" alt="AI Icon" class="AIicon"></td>
+				</tr>
+
+				
+				<tr class="grey-row">
+                    <td>TRX-000926</td>
+                    <td>INV-IL885</td>
+                    <td>Invoice</td>
+                    <td>£16,533.98</td>
+					<td>Approved</td>
+                    <td>Production Approval Required</td>
+                    <td><button class="button2" onclick="openPopup()" disabled>Review</button></td>
+					<td><img src="AI-Icon.png" alt="AI Icon" class="AIicon"></td>
+                </tr>
+				
+				<tr class="grey-row">
+					<td>TG-000010</td>
+					<td>--</td>
+					<td>Personal Expense Reimbursement Claim</td>
+					<td>£93.76</td>
+					<td>Approved</td>
+					<td>Production Approval Required</td>
+                    <td><button class="button2" onclick="openPopup()" disabled>Review</button></td>
+					<td><img src="AI-Icon.png" alt="AI Icon" class="AIicon"></td>
+				</tr>
+
+				<tr class="grey-row">
+					<td>FRN-1348</td>
+					<td>--</td>
+					<td>Film Relationship</td>
+					<td>--</td>
+					<td>Approved</td>
+					<td>Production Approval Required</td>
+                    <td><button class="button2" onclick="openPopup()" disabled>Review</button></td>
+					<td><img src="AI-Icon.png" alt="AI Icon" class="AIicon"></td>
+				</tr>
+                <!-- More rows can be added here -->
+            </tbody>
+        </table>
+    </div>
+
+
+<!-- Popup Window -->
+<div id="popup" class="popup">
+    <!-- Main Popup Content -->
+    <div class="popup-content" id="popup-main">
+        <button class="close-btn1" onclick="closePopup()">X</button>
+        <h3>Document Preview</h3>
+        <img id="popup-image" src="" alt="Document Image" style="width:100%; height:auto;">
+        
+        <!-- Buttons Container -->
+        <div id="popup-buttons" class="popup-buttons"></div>
+    </div>
+
+    <!-- Approval/Rejection Message Content -->
+    <div class="popup-content approval-message" id="approval-message" style="display: none;">
+        <p class="message-text">Message goes here</p>
+        <button class="ok-btn" onclick="closePopup()">OK</button>
+    </div>
+
+    <!-- Query Input Content -->
+    <div class="popup-content query-popup" id="query-popup" style="display: none;">
+        <button class="close-btn1" onclick="closePopup()">X</button>
+        <h3>Submit Query</h3>
+        <textarea placeholder="Enter your query here..."></textarea>
+        <div class="popup-buttons">
+            <button onclick="submitQuery()">Submit Query</button>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

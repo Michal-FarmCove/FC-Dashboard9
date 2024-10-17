@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Details</title>
+    <link rel="stylesheet" href="styles.css">
+	<script src="More-Tab.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="Farm Cove Horizontal Logo.png" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="magnifying glass.png" alt="Search" class="icon">
+            <img src="bell.png" alt="Notifications" class="icon">
+            <img src="avatar.png" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Main Navigation Tabs -->
+    <div class="tabs">
+        <a href="index.html">Home</a>
+        <a href="approvals.html">Approvals</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html" class="active">Film Details</a>
+        <a href="reporting.html">Reports</a>
+        <a href="schedule-payment.html">Schedule Payment</a>
+        <a href="pay.html">Pay</a>
+		
+		<!-- More Button -->
+		<div class="more">
+			More
+			<div class="more-dropdown"></div>
+		</div>
+			
+		
+    </div>
+
+    <!-- Film Header (Outside the container) -->
+    <div class="film-header-wrapper" style="margin-top: 60px; padding-left: 60px; padding-right: 60px;">
+        <div class="film-header">
+            <img src="Film-Icon.png" alt="Film Icon">
+            <div class="film-title">
+                <h1>To the Moon!</h1>
+                <button class="follow-button">+ Follow</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Outer Container -->
+    <div class="outer-container">
+        <!-- Film Details Container -->
+        <div class="film-details-container">
+            <div class="film-info-grid">
+                <!-- Left Grid (Poster, Title, Provisional Title) -->
+                <div class="grid-left">
+                    <div>
+                        <strong>Title</strong>
+                        <p>To the Moon!</p>
+                        <hr>
+                        <p>Provisional Title</p>
+                    </div>
+                    <!-- Poster Section -->
+                    <div class="poster-section">
+                        <hr class="align-line"> <!-- Line below 'Poster' -->
+                        <p>Poster</p>
+                        <img src="movie-poster.png" alt="Film Poster">
+                        <hr class="align-line"> <!-- Line below the poster -->
+                    </div>
+                </div>
+
+                <!-- Right Grid (Film Details) -->
+                <div class="grid-right">
+                    <div>
+                        <strong>Production Stage</strong>
+                        <p>Pre-Production</p>
+                        <hr>
+						<br>
+                        <strong>Film Language</strong>
+                        <p>Hindi</p>
+                        <hr>
+						<strong>UK Production Company</strong>
+                        <p>Bollywood Limited</p>
+                    </div>
+
+                    <div>
+						<hr class="align-line"> <!-- Line above Overseas Production Company -->
+                        <strong>Overseas Production Company</strong>
+                        <p>Golden Lotus Films</p>
+                    </div>
+					
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

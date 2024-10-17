@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions - Invoices</title>
+    <link rel="stylesheet" href="styles.css">
+	<script src="More-Tab.js"></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="Farm Cove Horizontal Logo.png" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="magnifying glass.png" alt="Search" class="icon">
+            <img src="bell.png" alt="Notifications" class="icon">
+            <img src="avatar.png" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Hidden Menu for Mobile View -->
+       <div class="tabs">
+        <a href="index.html">Home</a>
+        <a href="approvals.html">Approvals</a>
+        <a href="transactions-reimbursement.html" class="active">Transactions</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html">Film Details</a>
+        <a href="reporting.html">Reports</a>
+        <a href="schedule-payment.html">Schedule Payment</a>
+        <a href="pay.html">Pay</a>
+		
+				<!-- More Button -->
+		<div class="more">
+			More
+			<div class="more-dropdown"></div>
+		</div>
+    </div>
+
+
+    <!-- Sub-navigation Bar for Transactions -->
+    <div class="tabs sub-navbar">
+	    <a href="transactions-reimbursement.html" class="active">Personal Expense Reimbursement Claims</a>
+        <a href="transactions-payroll.html">Payroll Submission</a>
+	   <a href="transactions-expenses.html">Invoices Submission</a>
+    </div>
+
+    <!-- Page Header -->
+    <div class="header">
+        <h1>Invoices</h1>
+        <p>73 of 73 items • 0 items selected</p>
+    </div>
+
+    <!-- Table for Transactions -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Reference</th>
+                    <th>Invoice Number</th>
+                    <th>Supplier</th>
+                    <th>Status</th>
+                    <th>Transaction Date</th>
+                    <th>Description</th>
+                    <th>Total</th>
+                    <th>File Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>TRX - 000039</td>
+                    <td>INV-0000-0000</td>
+                    <td>Line Pending</td>
+                    <td>Queried</td>
+                    <td>15/01/2024</td>
+                    <td>This invoice was sent by Red Carpet LTD to Bollywood LTD for various travel expenses</td>
+                    <td>£600.00</td>
+                    <td><a href="#" class="link">Link</a></td>
+                </tr>
+                <tr>
+                    <td>TRX - 000040</td>
+                    <td>INV-0000-0002</td>
+                    <td>Luna LTD - Accommodations</td>
+                    <td>Approved</td>
+                    <td>25/01/2024</td>
+                    <td>This invoice was sent by Luna LTD for accommodations</td>
+                    <td>£1249.99</td>
+                    <td><a href="#" class="link">Link</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

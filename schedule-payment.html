@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+	<script src="More-Tab.js"></script>
+	<script src="More-Tab2.js"></script>
+	<script src="popup-window.js"></script>
+	<script src="popup-window2.js"></script>
+	<script src="save-cancel2.js"></script>
+
+
+
+	<style>
+		/* Popup general styles */
+
+
+		.popup-content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background-color: #fff;
+			padding: 50px;
+			border-radius: 8px;
+			width: auto;
+
+		}
+
+		#notification-message {
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+
+		#popup-image {
+			width: 100%;
+			max-width: 800px;
+			margin-bottom: 10px;
+			margin-top: 10px;
+		}
+
+		.button1, .button2 {
+			padding: 8px 16px;
+			background-color: #32B8CD;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+			margin-right: 5px;
+		}
+
+		.button1:hover, .button2:hover {
+			background-color: #1f8ba6;
+		}
+
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #333;
+			min-width: 100px;
+			padding: 10px;
+			border-radius: 4px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		.dropdown-content button {
+			color: #fff;
+			background: none;
+			border: none;
+			padding: 8px 10px;
+			text-align: left;
+			cursor: pointer;
+			width: 100%;
+		}
+
+		.dropdown-content button:hover {
+			background-color: #444;
+		}
+
+		.button-container {
+			display: flex;
+			justify-content: center;
+			margin-top: 20px;
+		}
+	</style>
+
+
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <img src="Farm Cove Horizontal Logo.png" alt="Farm Cove Logo"> <!-- Placeholder for the logo -->
+        </div>
+        <div class="nav-icons">
+            <img src="magnifying glass.png" alt="Search" class="icon">
+            <img src="bell.png" alt="Notifications" class="icon">
+            <img src="avatar.png" alt="User" class="icon">
+        </div>
+    </div>
+
+    <!-- Hidden Menu for Mobile View -->
+    <div class="tabs">
+        <a href="index.html">Home</a>
+        <a href="approvals.html">Approvals</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="film-details.html">Film Details</a>
+        <a href="reporting.html">Reports</a>
+        <a href="schedule-payment.html" class="active">Schedule Payment</a>
+        <a href="pay.html">Pay</a>
+		
+		<!-- More Button  -->
+		<div class="more">
+			More
+			<div class="more-dropdown"></div>
+		</div>
+    </div>
+
+    <!-- Sub-navigation Bar for Schedule Payment -->
+    <div class="tabs2">
+        <a href="schedule-payment.html" class="active">Invoices</a>
+        <a href="schedule-payment-personal-expenses.html">Personal Expenses</a>
+        <a href="schedule-payment-expense-account.html">Expense Account Reconciliations</a>
+        <a href="schedule-payment-payroll.html">Payroll Submission</a>
+		
+		<!-- More Button -->
+		<div class="more-tabs2">
+			More
+			<div class="more-dropdown-tabs2"></div> 
+		</div>
+		
+    </div>
+
+
+    <!-- Table for Scheduled Payments -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref.</th>
+                    <th>Ref No.</th>
+                    <th>Supplier</th>
+                    <th>Status</th>
+                    <th>Trans. Date</th>
+                    <th>Due Date</th>
+                    <th>Total</th>
+                    <th>Balance</th>
+                    <th>Schedule</th>
+                    <th>Amount to Pay</th>
+                    <th>Sch. Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+			
+			
+			<tr id="row1">
+    <td>TRX-0933</td>
+    <td>001</td>
+    <td>Costume Central - Wardrobe Supplies</td>
+    <td>Approved</td>
+    <td>01/10/24</td>
+    <td>01/11/24</td>
+    <td>£6,533.98</td>
+    <td>£1,000.00</td>
+	<td>
+    <label class="switch">
+		<input type="checkbox" class="pay-switch-input" onchange="toggleInputs(this, 'row1')">
+		<span class="slider round"></span>
+    </label>
+    </td>
+        <td class="amount-cell" id="amount-input-cell-2"></td> <!-- Default to empty -->
+	<td class="date-cell" id="date-input-cell-2"></td> <!-- Default to empty -->
+	
+    <td><button class="button1" onclick="openPopup('scheduleinv1.png', [])">View</button></td>
+	</tr>
+
+
+
+
+			
+<tr class="grey-row">
+    <td>TRX-0934</td>
+    <td>002</td>
+    <td>Bollywood Limited - Production Services</td>
+    <td>Approved</td>
+    <td>25/08/24</td>
+    <td>25/09/24</td>
+    <td>£5,400.00</td>
+    <td>£2,900.00</td>
+    <td>
+        <label class="switch">
+            <input type="checkbox" checked disabled>
+            <span class="slider round"></span>
+        </label>
+    </td>
+    <td>£2,500.00</td>
+    <td>25/09/24</td>
+    <td><button class="button2">View</button></td>
+</tr>
+
+
+
+<tr class="grey-row">
+    <td>TRX-0935</td>
+    <td>003</td>
+    <td>Lighting Co - Lighting Rentals</td>
+    <td>Approved</td>
+    <td>05/11/24</td>
+    <td>05/12/24</td>
+    <td>£7,850.00</td>
+    <td>£5,850.00</td>
+    <td>
+        <label class="switch">
+            <input type="checkbox" checked disabled>
+            <span class="slider round"></span>
+        </label>
+    </td>
+    <td>£2,000.00</td>
+    <td>05/12/24</td>
+    <td><button class="button2">View</button></td>
+</tr>
+
+
+<tr class="grey-row">
+    <td>TRX-0936</td>
+    <td>004</td>
+    <td>Prop House Ltd - Set Decorations</td>
+    <td>Approved</td>
+    <td>20/10/24</td>
+    <td>20/11/24</td>
+    <td>£4,320.00</td>
+    <td>£3,320.00</td>
+    <td>
+        <label class="switch">
+            <input type="checkbox" checked disabled>
+            <span class="slider round"></span>
+        </label>
+    </td>
+    <td>£1,000.00</td>
+    <td>20/11/24</td>
+    <td><button class="button2">View</button></td>
+</tr>
+
+
+<tr class="grey-row">
+    <td>TRX-0937</td>
+    <td>005</td>
+    <td>West End Catering - Catering Services</td>
+    <td>Approved</td>
+    <td>15/10/24</td>
+    <td>15/11/24</td>
+    <td>£2,750.00</td>
+    <td>£1,250.00</td>
+    <td>
+        <label class="switch">
+            <input type="checkbox" checked disabled>
+            <span class="slider round"></span>
+        </label>
+    </td>
+    <td>£1,500.00</td>
+    <td>15/11/24</td>
+    <td><button class="button2">View</button></td>
+</tr>
+                <!-- More rows can be added here -->
+            </tbody>
+        </table>
+    </div>
+
+
+<!-- Popup Window -->
+<div id="popup" class="popup">
+    <!-- Main Popup Content -->
+    <div class="popup-content" id="popup-main">
+        <button class="close-btn1" onclick="closePopup()">X</button>
+        <h3>Document Preview</h3>
+        <img id="popup-image" src="" alt="Document Image" style="width:100%; height:auto;">
+        
+        <!-- Buttons Container -->
+        <div id="popup-buttons" class="popup-buttons"></div>
+    </div>
+
+    <!-- Approval/Rejection Message Content -->
+    <div class="popup-content approval-message" id="approval-message" style="display: none;">
+        <p class="message-text">Message goes here</p>
+        <button class="ok-btn" onclick="closePopup()">OK</button>
+    </div>
+
+    <!-- Query Input Content -->
+    <div class="popup-content query-popup" id="query-popup" style="display: none;">
+        <button class="close-btn1" onclick="closePopup()">X</button>
+        <h3>Submit Query</h3>
+        <textarea placeholder="Enter your query here..."></textarea>
+        <div class="popup-buttons">
+            <button onclick="submitQuery()">Submit Query</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Buttons Below the Table -->
+<div class="button-container" id="save-cancel-buttons" style="display: none;">
+    <button class="button2" onclick="cancelChanges()">Cancel</button>
+    <button class="button2" onclick="saveChanges()">Save</button>
+    <div class="dropdown">
+        <button class="button2" onclick="toggleDropdown()">▼</button>
+        <div class="dropdown-content">
+            <button onclick="exportCSV()">Export CSV</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>
